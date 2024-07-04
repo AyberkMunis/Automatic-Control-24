@@ -1,0 +1,9 @@
+%a
+s=tf('s');
+L=1/(s*(1+s/2)^3);
+nyquist(3)
+%b
+nichols(L)
+%c
+L_2=3*L;
+nichols(L)
