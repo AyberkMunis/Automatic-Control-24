@@ -1,0 +1,25 @@
+clear all
+close all
+clc
+s=tf('s')
+Kc=0.8;
+C_SS=0.8;
+M_T_HF=mag2db((0.8*10^-2)/1);
+zeta=0.48;
+T_p=mag2db(1.185);
+S_p=mag2db(1.5);
+trwc=1.88;
+tr=0.25;
+wc_des=trwc/tr;
+T_s=0.015;
+G_ZOH=1/(1+(s*T_s)/2);
+G=120/(s^3+15.8*s^2+12*s);
+C0=C_SS;
+L_1=G_ZOH*G*C_SS;
+figure(1)
+nichols(L_1), hold on;
+T_grid(T_p);
+S_grid(S_p);
+T_grid(M_T_HF);
+
+
